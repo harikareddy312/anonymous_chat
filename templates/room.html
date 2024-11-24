@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="message-box">
+    <h2>Cloak Voice: {{ code }}</h2>
+    <div class="messages" id="messages"></div>
+    <div class="inputs">
+        <input type="text" rows="3" placeholder="Message" name="message" id="message">
+        <button type="button" name="send" id="send-btn" onClick="sendMessage()">Post Blog</button>
+    </div>
+</div>
+
+<style>
+    .message-box {
+        max-width: 600px;
+        margin: auto;
+    }
+    .messages {
+        border: 1px solid #ccc;
+        padding: 10px;
+        max-height: 400px;
+        overflow-y: auto;
+        margin-bottom: 10px;
+    }
+    .message {
+        margin-bottom: 10px;
+    }
+    .message-name {
+        font-weight: bold;
+        margin-bottom: 2px;
+    }
+</style>
+
+<script type="text/javascript">
+    var socketio = io();
+    
+    // Send a message to the server
+    const sendMessage = () => {
+        const messageInput = document.getElementById("message"); 
+        const message = messageInput.value.trim(); 
+        if (message === '') return; 
+        socketio.emit("message", { data: message });  
+        messageInput.value = ""; 
+    };
+
+    // Listen for incoming messages and display them
+    socketio.on("message", (data) => {
+        const messagesDiv = document.getElementById("messages");
+        
+        // Create elements for the message
+        const messageContainer = document.createElement("div");
+        messageContainer.classList.add("message");
+        
+        const nameElement = document.createElement("div");
+        nameElement.classList.add("message-name");
+        nameElement.textContent = data.name;
+        
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("message-content");
+        messageElement.textContent = data.message;
+
+        // Append name and message to the container
+        if (data.message.includes("has entered") || data.message.includes("has left")) {
+            messageContainer.classList.add("entry-exit-message");  // Less highlighted for entry/exit
+        } else {
+            messageContainer.classList.add("chat-message");  // Highlighted for chat messages
+        }
+        messageContainer.appendChild(nameElement);
+        messageContainer.appendChild(messageElement);
+
+        // Append the new message container to the messages div
+        messagesDiv.appendChild(messageContainer);
+        
+        // Scroll to the latest message
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    });
+</script>
+{% endblock %}

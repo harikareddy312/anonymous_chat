@@ -1,0 +1,249 @@
+/* General styling for the form container */
+form {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff; /* White background */
+    border: 2px solid #2f855a; /* Green border */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(47, 133, 90, 0.2);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Heading style */
+form h3 {
+    color: #2f855a; /* Green color for title */
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Form group styling for alignment */
+form div {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Label styling */
+form label {
+    display: block;
+    font-weight: bold;
+    color: #4a5568; /* Medium gray color */
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+/* Input field styling */
+form input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 2px solid #e2e8f0; /* Light gray border */
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #f0fff4; /* Light green background */
+    color: #2d3748; /* Dark text color */
+    transition: border-color 0.3s ease;
+}
+
+/* Input field hover and focus effects */
+form input[type="text"]:focus {
+    border-color: #2f855a; /* Green border on focus */
+    outline: none;
+}
+
+/* Styling for the Join button */
+form .join button {
+    background-color: #2f855a; /* Green button background */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+/* Join button hover effect */
+form .join button:hover {
+    background-color: #276749; /* Darker green on hover */
+}
+
+/* Styling for the Create button */
+form .create-btn {
+    background-color: #2f855a; /* Green button background */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+/* Create button hover effect */
+form .create-btn:hover {
+    background-color: #276749; /* Darker green on hover */
+}
+
+/* Styling for placeholders */
+form input::placeholder {
+    color: #a0aec0; /* Light gray placeholder text */
+    font-style: italic;
+}
+
+/* Media query for responsive design */
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+    form h3 {
+        font-size: 1.6em;
+    }
+    form input[type="text"], form .join button, form .create-btn {
+        font-size: 1em;
+    }
+}
+
+
+
+
+
+
+
+/* General container styling */
+.message-box {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    height: 80vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.message-box h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Space for displaying blogs */
+.messages {
+    max-height: calc(80vh - 160px); /* Adjust based on header and input height */
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+/* Styling each blog message */
+.messages .blog-entry {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+.messages .blog-entry:last-child {
+    border-bottom: none;
+}
+
+.blog-entry h3 {
+    font-size: 18px;
+    color: #007b5e;
+    margin-bottom: 5px;
+}
+
+.blog-entry p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Styling for input and button container fixed at the bottom */
+.inputs {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding-top: 10px;
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd;
+}
+
+/* Input field styling */
+.inputs input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.inputs input[type="text"]:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+}
+
+/* Green shade for Post Blog button */
+#send-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#send-btn:hover {
+    background-color: #218838;
+}
+
+/* Scrollbar customization */
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+}
+.entry-exit-message {
+    color: #777;
+    font-style: italic;
+}
+.chat-message {
+    background-color: #f0f8ff;
+    border: 2px solid #89d08b;
+    border-radius:9px; 
+}
